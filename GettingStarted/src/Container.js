@@ -1,11 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
-let gmr = require('google-maps-react');
-let Map = gmr.Map;
-let InfoWindow = gmr.InfoWindow;
-let Marker = gmr.Marker;
-let GoogleApiWrapper = gmr.GoogleApiWrapper;
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react'
 
 export const Container = React.createClass({
 
@@ -18,7 +13,11 @@ export const Container = React.createClass({
           zoom={14}
           containerStyle={{}}
           centerAroundCurrentLocation={true}
-          />
+          >
+        <Marker
+          name={'SOMA'}
+          position={{lat: 37.778519, lng: -122.405640}} />
+      </Map>
       </div>
     )
   }
