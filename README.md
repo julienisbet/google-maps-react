@@ -20,6 +20,10 @@ npm install --save google-maps-react
 Usage:
 
 ```javascript
+import Map from 'google-maps-react'
+
+// ...
+
 <Map google={this.props.google} zoom={14}>
 
   <Marker onClick={this.onMarkerClick}
@@ -143,6 +147,14 @@ To place a marker on the Map, include it as a child of the `<Map />` component.
     name={'Dolores park'}
     position={{lat: 37.759703, lng: -122.428093}} />
   <Marker />
+  <Marker
+    name={'Your position'}
+    position={{lat: 37.762391, lng: -122.439192}}
+    icon={{
+      url: "/path/to/custom_icon.png",
+      anchor: new google.maps.Point(32,32),
+      scaledSize: new google.maps.Size(64,64)
+    }}
 </Map>
 ```
 
@@ -303,7 +315,7 @@ npm install
 make dev
 ```
 
-The Google Map React component library uses React and the Google API to give easy access to the Google Maps library. 
+The Google Map React component library uses React and the Google API to give easy access to the Google Maps library.
 
 ___
 
@@ -323,4 +335,3 @@ This app is only one of several apps we have in the book. If you're looking to l
 
 ## License
  [MIT](/LICENSE)
-

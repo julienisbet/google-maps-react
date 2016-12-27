@@ -148,11 +148,13 @@ export class Map extends React.Component {
           keyboardShortcuts: this.props.keyboardShortcuts,
           disableDoubleClickZoom: this.props.disableDoubleClickZoom,
           noClear: this.props.noClear,
-          styles: this.props.styles
+          styles: this.props.styles,
+          gestureHandling: this.props.gestureHandling
         });
 
         Object.keys(mapConfig).forEach((key) => {
-          if (!mapConfig[key]) {
+          // Allow to configure mapConfig with 'false'
+          if (mapConfig[key] == null) {
             delete mapConfig[key];
           }
         });
@@ -269,7 +271,8 @@ Map.propTypes = {
   keyboardShortcuts: T.bool,
   disableDoubleClickZoom: T.bool,
   noClear: T.bool,
-  styles: T.array
+  styles: T.array,
+  gestureHandling: T.string
 }
 
 evtNames.forEach(e => Map.propTypes[camelize(e)] = T.func)
